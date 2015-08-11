@@ -1,5 +1,6 @@
 
 # ASCII Triangle Problem
+# This is a homework problem
 
 print "Give me a number: "
 number = gets.to_i;
