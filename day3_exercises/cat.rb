@@ -1,3 +1,5 @@
+require "./animal.rb"
+
 class Cat < Animal
 
   def initialize(name,fail_rate,is_alive=true)

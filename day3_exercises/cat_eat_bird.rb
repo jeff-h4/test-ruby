@@ -1,7 +1,4 @@
 
-
-
-require './animal.rb'
 require './bird.rb'
 require './cat.rb'
 
