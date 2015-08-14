@@ -1,12 +1,17 @@
 
 <h1>Car Age Result Page</h1>
 <p> This application is for Cars </p>
-params: <%=params.to_s%>
+<!--params: <%=params.to_s%>-->
+Your car is 
 <% case params["input_age_of_car"] %>
     <% when 0..1980%>
-    <%="Antique!"%>
+    <%="Very Old!"%>
+    <% when 1981..2000%>
+    <%="Old!"%>
+    <% when 2001..2015%>
+    <%="New!"%>
   <% else %>
-    <%="Newish!"%>
+    <%="Futuristic!"%>
   <% end %>
   <!-- This is an HTML comment -->
   <%# This is an ERB comment %>

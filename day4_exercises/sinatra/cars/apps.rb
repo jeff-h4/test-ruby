@@ -25,24 +25,18 @@ end
 post "/car_age" do
   # It seems you can only put 1 string here
   # it looks like 'params' hash is available, without having to explicitly pass it
-  route_get_car_age(@title)
+  route_get_car_age
 end
 #========================================================
 # Route Definitions
 #========================================================
-def config
-  
-end
-
 def route_get_slash
     erb :index, {layout: :application}
 end
 
-def route_get_car_age(title)
+def route_get_car_age
   # it looks like 'params' hash is available, without having to explicitly pass it
   erb :car_age_result, {layout: :application}
-  #"This is route_get_car_age #{params.to_s} blah"
-  #puts "string1"
 end
 
 def route_get_description
