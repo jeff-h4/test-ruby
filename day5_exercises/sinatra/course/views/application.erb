@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+      <%=@title%>
+  </title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href = "/">Home</a>
+      <a href = "/companybs">Company BS</a>
+      <a href = "/personality_result">Personality result</a>
+      <a href = "/winner">Pick a Winner</a>
+      <!-- <a href = "/contact">Contact us</a> -->
+      The last winner was: <%= session[:the_last_winner] %>
+      <%# | # visits: <%= session[:num_visits] %> 
+    </nav>
+  </header>
+  <hr>
+  <%# The yield will get replaced by the contact of each template 
+  that is using this layout. For instance the content of index.erb 
+  will be injected in place of this yield %>
+  <%= yield %>
+
+</body>
+</html>

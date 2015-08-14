@@ -1,0 +1,15 @@
+<h1><%= @page_title %></h1>
+<p> <%= @intro %> </p>
+
+<form action="/winner" method="post">
+  <textarea value="" name="name-list" cols="20" rows="5"></textarea>
+  <input type="submit" value="Pick Winner">
+</form>
+
+<hr>
+<h1><%= @winner_string %>
+<hr>
+<!-- <p>Params is: <%= params.to_s %> -->
+
+
+

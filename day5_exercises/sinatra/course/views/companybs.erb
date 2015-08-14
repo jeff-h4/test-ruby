@@ -1,0 +1,16 @@
+
+<h1><%= @page_title %></h1>
+<p> <%= @intro %> </p>
+
+<form action="/companybs" method="post">
+  <input type="button" value="random button that does nothing">
+  <input type="submit" value="Generate some BS">
+</form>
+<img src="/car.jpg">
+<hr>
+<p><%= @company_slogan %>
+<hr>
+<p>Params is: <%= params.to_s %>
+
+
+
