@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Cars Application 
+  </title>
+</head>
+<body bgcolor="yellow">
+  <header>
+    <nav>
+      <a href = "/">Home</a>
+      <!-- <a href = "/contact">Contact us</a> -->
+    </nav>
+  </header>
+  <hr>
+  <%# The yield will get replaced by the contact of each template 
+  that is using this layout. For instance the content of index.erb 
+  will be injected in place of this yield %>
+  Start of yield
+  <%= yield %>
+  End of yield
+
+</body>
+</html>
