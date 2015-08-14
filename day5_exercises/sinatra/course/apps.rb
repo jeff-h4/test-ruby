@@ -61,7 +61,12 @@ def route_get_slash
     @page_title = "Home"
     @intro = "Welcome Home"
     @company_slogan = "Not Set"
-    #session[:num_visits] += 1
+    if session[:num_visits]
+      session[:num_visits] += 1
+    else
+      session[:num_visits] = 1
+    end
+
     erb :index, {layout: :application}
 end
 
