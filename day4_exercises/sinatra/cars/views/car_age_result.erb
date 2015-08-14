@@ -1,7 +1,13 @@
 
 <h1>Car Age Result Page</h1>
 <p> This application is for Cars </p>
-#<%=params%>
+params: <%=params.to_s%>
+<% case params["input_age_of_car"] %>
+    <% when 0..1980%>
+    <%="Antique!"%>
+  <% else %>
+    <%="Newish!"%>
+  <% end %>
   <!-- This is an HTML comment -->
   <%# This is an ERB comment %>
   <%# sinatra_temperature refers to URL path%>
@@ -12,6 +18,12 @@
     <%#hash value is the content of the text field%>
     <input type="text" placeholder="Degrees here" name="temp_deg">
     <input type="submit">
-  </form>
+  </<form action="/car_age" method="post">
+  <label for="input_age_of_car">Enter the age of your car:</label>
+  <input type="text" placeholder="e.g. 1990" name="input_age_of_car">
+  <input type="submit">
+</form>
+
+form>
   -->
 

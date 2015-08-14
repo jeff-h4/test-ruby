@@ -5,12 +5,15 @@ require "sinatra/reloader" if development?
 #========================================================
 # Configuration
 #========================================================
-@title = "This is my variable title"
+before do
+  @title = "BEFORE-FILTER: CONFIG TITLE"
+end
 #========================================================
 # Routes
 #========================================================
 # Basic Route
 get "/" do  # This is a GET Request from the client
+  @title = "ROUTE-TITLE"
   route_get_slash
 end
 
@@ -21,18 +24,22 @@ end
 
 post "/car_age" do
   # It seems you can only put 1 string here
-  #
-  #"This is post car_age #{params.to_s} blah"
-  route_get_car_age(params)
+  # it looks like 'params' hash is available, without having to explicitly pass it
+  route_get_car_age(@title)
 end
 #========================================================
 # Route Definitions
 #========================================================
+def config
+  
+end
+
 def route_get_slash
     erb :index, {layout: :application}
 end
 
-def route_get_car_age(params)
+def route_get_car_age(title)
+  # it looks like 'params' hash is available, without having to explicitly pass it
   erb :car_age_result, {layout: :application}
   #"This is route_get_car_age #{params.to_s} blah"
   #puts "string1"
