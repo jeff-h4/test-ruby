@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <title>
       <%=@title%>
-  </title>
+    </title>
+    <style>
+      body {
+        background-color: <%= session[:bgcolor] %>
+        }
+    </style>
+
 </head>
 <body>
   <header>
@@ -15,12 +21,26 @@
       <a href = "/winner">Pick a Winner</a>
       <!-- <a href = "/contact">Contact us</a> -->
       The last winner was: <%= session[:the_last_winner] %>
-      | # visits: <%= session[:num_visits] %> 
+    | # visits: <%= session[:num_visits] %>
+    |
+    <!-- solution for color setting -->
+    <!-- <a href = "/color/red">red</a> -->
+    <!-- <a href = "/color/green">green</a> -->
+    <!-- <a href = "/color/blue">blue</a> -->
+    <form action="/route" method="post">
+      <label for="colorselect">Select BG Color</label>
+      <select id="colorselect" name="color_selection" value="blue" onChange=<%= session[:bgcolor] %> >
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+      </select>
+      <input type="submit">
+    </form>
     </nav>
   </header>
   <hr>
-  <%# The yield will get replaced by the contact of each template 
-  that is using this layout. For instance the content of index.erb 
+  <%# the yield will get replaced by the contact of each template
+  that is using this layout. For instance the content of index.erb
   will be injected in place of this yield %>
   <%= yield %>
 
