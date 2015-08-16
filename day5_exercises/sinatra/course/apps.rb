@@ -38,12 +38,6 @@ post "/" do
   route_post_slash
 end
 
-get "/personality_result" do
-  route_get_personality_result
-end
-post "/personality_result" do
-  route_post_personality_result
-end
 get "/companybs" do
   route_get_companybs
 end
@@ -60,7 +54,6 @@ get "/test_protected" do
   protected!
   "you're in"
 end
-
 post "/route" do
   session[:bgcolor] = params["color_selection"]
   #erb :index, layout: :application
@@ -71,7 +64,64 @@ end
 #   session[:bg_color] = params[:name]
 # redirect back
 #end
+#========================================================
+# Homework
+#========================================================
+get "/personality_result" do
+  route_get_personality_result
+end
+post "/personality_result" do
+  route_post_personality_result
+end
+get "/calculator" do
+    @route = "/calculator"
+    @page_title = "Calculator"
+    @intro = "Welcome to the Calculator page"
+    erb :calculator, layout: :application
+end
+post "/calculator" do
+    @route = "/calculator"
+    @page_title = "Calculator"
+    @intro = "Calculation..."
+    @num1 = params["num1"].to_f
+    @num2 = params["num2"].to_f
+    # operate on the 2 numbers
+    # params["num1"] and params["num2"]
+    case params["math-op"]
+    when "+"
+      @calculator_output = @num1.to_f + @num2.to_f
+      @selected_plus  = "selected"
+      @selected_minus = ""
+      @selected_mult  = ""
+      @selected_div   = ""
+    when "-"
+      @calculator_output = @num1.to_f - @num2.to_f
+      @selected_plus  = ""
+      @selected_minus = "selected"
+      @selected_mult  = ""
+      @selected_div   = ""
+    when "x"
+      @calculator_output = @num1.to_f * @num2.to_f
+      @selected_plus  = ""
+      @selected_minus = ""
+      @selected_mult  = "selected"
+      @selected_div   = ""
+    when "/"
+      if @num2 == 0
+        @calculator_output = "ERROR: Division by Zero not valid."
+      else
+        @calculator_output = @num1.to_f / @num2.to_f
+      end
+      @selected_plus  = ""
+      @selected_minus = ""
+      @selected_mult  = ""
+      @selected_div   = "selected"
+    end
+    erb :calculator, layout: :application
+end
 
+
+#
 #========================================================
 # Route Definitions
 #========================================================
