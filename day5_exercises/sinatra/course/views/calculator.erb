@@ -1,0 +1,29 @@
+<h1><%= @page_title %></h1>
+<p> <%= @intro %> </p>
+
+<div position="inline">
+  <form action="/calculator" method="post">
+    <input type="text" name="num1" value="<%= @num1 %>">
+    <label for="num1">
+  
+      <select name="math-op">
+        <option value="+" <%= @selected_plus  %>>+</option>
+        <option value="-" <%= @selected_minus %>>-</option>
+        <option value="x" <%= @selected_mult  %>>x</option>
+        <option value="/" <%= @selected_div   %>>/</option>
+      </select>
+        
+    <input type="text" name="num2" value="<%= @num2 %>">
+    <label for="num2">
+    <input type="submit" value="=">
+  </form>
+</div>
+
+<div position="inline" right="300px">
+  <%= @calculator_output %>
+</div>
+<hr>
+<p>Params is: <%= params.to_s %>
+
+
+
